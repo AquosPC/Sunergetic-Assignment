@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', [CustomerController::class, 'getCustomerList']);
+
+Route::get('/admin/view/{id}', [CustomerController::class, 'getCustomer']);
+
+Route::get('/admin/create', [CustomerController::class, 'showCreateCustomer']);
+
+Route::post('/admin/create/customer', [CustomerController::class, 'createCustomer']);

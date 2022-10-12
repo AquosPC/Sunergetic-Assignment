@@ -6,7 +6,7 @@
             <a href="/"><- go back</a>
         </div>
         <div class="text-center px-16 pb-5 pt-16">
-            <a href="#add-new-customer">
+            <a href="/admin/create">
                 <div class="bg-emerald-500 w-fit p-4 rounded-xl">
                     <h1 class="text-white">Add customer</h1>
                 </div>
@@ -22,24 +22,14 @@
                     </tr> 
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="px-6 border border-emerald-500">tdekeijser@erdogan.com</td>
-                        <td class="px-6 border border-emerald-500">Simon</td>
-                        <td class="px-6 border border-emerald-500">van der Meulen</td>
-                        <td class="px-6 text-center"><a href="#view-customer"><img src="{{asset('img/icons/eye-solid.svg')}}" class="h-4 mx-auto" alt=""></i></a></td>
-                    </tr>
+                    @foreach ($response->data as $item)
                         <tr>
-                            <td class="px-6 border border-emerald-500">tdekeijser@erdogan.com</td>
-                            <td class="px-6 border border-emerald-500">Simon</td>
-                            <td class="px-6 border border-emerald-500">van der Meulen</td>
-                            <td class="px-6 text-center"><a href="#view-customer"><img src="{{asset('img/icons/eye-solid.svg')}}" class="h-4 mx-auto" alt=""></i></a></td>
+                            <td class="px-6 border border-emerald-500">{{$item->email}}</td>
+                            <td class="px-6 border border-emerald-500">{{$item->firstname}}</td>
+                            <td class="px-6 border border-emerald-500">{{$item->lastname}}</td>
+                            <td class="px-6 text-center"><a href="/admin/view/{{$item->id}}"><img src="{{asset('img/icons/eye-solid.svg')}}" class="h-4 mx-auto" alt=""></i></a></td>
                         </tr>
-                        <tr>
-                            <td class="px-6 border border-emerald-500">tdekeijser@erdogan.com</td>
-                            <td class="px-6 border border-emerald-500">Simon</td>
-                            <td class="px-6 border border-emerald-500">van der Meulen</td>
-                            <td class="px-6 text-center"><a href="#view-customer"><img src="{{asset('img/icons/eye-solid.svg')}}" class="h-4 mx-auto" alt=""></i></a></td>
-                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
