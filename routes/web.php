@@ -24,4 +24,12 @@ Route::get('/admin/view/{id}', [CustomerController::class, 'getCustomer']);
 
 Route::get('/admin/create', [CustomerController::class, 'showCreateCustomer']);
 
+Route::get('/admin/edit/{id}', [CustomerController::class, 'showEditCustomer']);
+
+Route::put('/admin/edit/customer', [CustomerController::class, 'editCustomer']);
+
 Route::post('/admin/create/customer', [CustomerController::class, 'createCustomer']);
+
+Route::get('/admin/delete/{id}', [CustomerController::class, 'showDeleteCustomer']);
+
+Route::delete('/admin/delete/{id}', [CustomerController::class, 'DeleteCustomer']);

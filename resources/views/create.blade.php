@@ -23,13 +23,13 @@
                     <h1>Phone:</h1>
                 </div>
                     <div class="pb-16 pl-10 text-xl space-y-2 flex flex-col">
-                        <input class="border-2 border-emerald-500" type="email" name="email">
-                        <input class="border-2 border-emerald-500" type="text" name="firstname">
-                        <input class="border-2 border-emerald-500" type="text" name="lastname">
-                        <input class="border-2 border-emerald-500" type="text" name="address">
-                        <input class="border-2 border-emerald-500" type="text" name="zipcode">
-                        <input class="border-2 border-emerald-500" type="text" name="city">
-                        <input class="border-2 border-emerald-500" type="text" name="phone">
+                        <input class="border-2 border-emerald-500" type="email" name="email" value="{{old('email')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="firstname" value="{{old('firstname')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="lastname" value="{{old('lastname')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="address" value="{{old('address')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="zipcode" value="{{old('zipcode')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="city" value="{{old('city')}}">
+                        <input class="border-2 border-emerald-500" type="text" name="phone" value="{{old('phone')}}">
                     </div>
             </div>
         </form>

@@ -7,14 +7,14 @@
         </div>
         <div class="flex flex-row">
             <div class="text-center px-16 pb-5 pt-16">
-                <a href="#edit-customer">
+                <a href="/admin/edit/{{$response->id}}">
                     <div class="bg-emerald-500 w-fit p-4 rounded-xl">
                         <h1 class="text-white">Edit customer</h1>
                     </div>
                 </a>
             </div>
             <div class="text-center px-16 pb-5 pt-16">
-                <a href="#delete-customer">
+                <a href="/admin/delete/{{$response->id}}">
                     <div class="bg-red-500 w-fit p-4 rounded-xl">
                         <h1 class="text-white">Delete customer</h1>
                     </div>
