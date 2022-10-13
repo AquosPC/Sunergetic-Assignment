@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 
 class CustomerController extends Controller
 {
+
+    //Gets a list of customers and decodes json and put it in a variable and brings the user to the admin page
     public function getCustomerList()
     {
         $response = Http::get('https://assignment.sunergetic.nl/api/v1/customers', [
@@ -21,6 +23,7 @@ class CustomerController extends Controller
         ]);
     }
 
+    //Gets specific customer by id and decodes json and put it in a variable and brings the user to the view page
     public function getCustomer($id)
     {
         $response = Http::get('https://assignment.sunergetic.nl/api/v1/customers/'.$id, [
@@ -34,6 +37,7 @@ class CustomerController extends Controller
         ]);
     }
 
+    //brings the user to the edit page with a get request about the specific customer to edit
     public function showEditCustomer($id)
     {
         $response = Http::get('https://assignment.sunergetic.nl/api/v1/customers/'.$id, [
@@ -47,6 +51,7 @@ class CustomerController extends Controller
         ]);
     }
 
+    //updates the edited customer information and bring the user back to the view page
     public function editCustomer(Request $request)
     {
         Http::put('https://assignment.sunergetic.nl/api/v1/customers/'.$request->id, [
@@ -63,25 +68,15 @@ class CustomerController extends Controller
         return redirect('/admin/view/'.$request->id);
     }
 
+    //shows the create page
     public function showCreateCustomer()
     {
-        // $response = Http::get('https://assignment.sunergetic.nl/api/v1/customers/'.$id, [
-        //     'token' => 'UiaExFiiH11aIRk0cxa1oxpauEQGv1'
-        // ]);
-
-        // $data = json_decode($response);
-
         return view('create');
     }
 
+    //Creates new customer with the information provided and redirects the user to admin page
     public function createCustomer(Request $request)
     {
-        $formfields = $request->validate([
-            'firstname' => ['required', 'min:3'],
-            'email'=> ['required', 'email'],
-        ]);
-
-
         Http::post('https://assignment.sunergetic.nl/api/v1/customers', [
             'token' => 'UiaExFiiH11aIRk0cxa1oxpauEQGv1',
             'email' => $request->email,
@@ -96,6 +91,7 @@ class CustomerController extends Controller
         return redirect('/admin');
     }
 
+    //Deletes customer information by id
     public function deleteCustomer($id)
     {
         Http::delete('https://assignment.sunergetic.nl/api/v1/customers/'.$id, [
@@ -105,6 +101,7 @@ class CustomerController extends Controller
         return redirect('/admin');
     }
 
+    //Shows the delete warning page with id information
     public function showDeleteCustomer($id)
     {
         return view('delete', [
